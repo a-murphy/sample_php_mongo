@@ -14,4 +14,5 @@ script:
   - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/ConnectToMongoTest.php
   
 notifications:
-   email: false
+   email:
+     on_success: 'always'
