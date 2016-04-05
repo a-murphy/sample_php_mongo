@@ -12,7 +12,7 @@
 >
     <testsuites>
         <testsuite name="Database Test">
-            <directory>./tests/</directory>
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
     <filter>
