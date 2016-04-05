@@ -5,6 +5,7 @@ php:
 services:
   - mongodb
 before_script: 
+  - ls $HOME/.phpenv/versions/$SHIPPABLE_PHP_VERSION
   - export PHP_XDEBUG_VERSION="2.4.0"
   - /tmp/pickle/bin/pickle install xdebug
   
