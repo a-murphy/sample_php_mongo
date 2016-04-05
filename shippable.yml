@@ -2,19 +2,17 @@ language: php
 
 php: 
   - 5.5
-services:
-  - mongodb
-before_script: 
-  - composer self-update
-  - pecl install xdebug
-  - echo 'zend_extension="/usr/lib/php5/20121212/xdebug.so"' > /etc/php5/cli/php.ini
+  - 5.6
   
-  - composer install --no-progress --no-interaction --prefer-source
-  - php -v
-  - mkdir -p shippable/testresults
-  - mkdir -p shippable/codecoverage
-script:
-  - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml 
-notifications:
-   email:
-     on_success: 'always'
+build:
+  pre_ci_boot:
+    image_name: amurphy/u14php
+    image_tag: test
+    pull: true
+    options: "-e HOME=/root"
+  ci:
+    - composer self-update
+    - composer install --no-progress --no-interaction --prefer-source
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
+    - vendor/phpunit/phpunit/phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml
