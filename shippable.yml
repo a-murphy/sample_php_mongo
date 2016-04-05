@@ -9,8 +9,8 @@ build:
     - composer self-update
     - composer install --no-progress --no-interaction --prefer-source
     - pecl install xdebug
-    - echo 'zend_extension="/root/.phpenv/versions/5.6/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so"' > /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/etc/php.ini
-    - phpenv rehash
+    - cp /usr/lib/php5/20121212/xdebug.so /home/ubuntu/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20151012
+    #- phpenv rehash
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - vendor/phpunit/phpunit/phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml
