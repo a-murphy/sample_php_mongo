@@ -12,7 +12,7 @@ before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
 script:
-  - vendor/phpunit/phpunit/phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml 
+  - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml 
 notifications:
    email:
      on_success: 'always'
