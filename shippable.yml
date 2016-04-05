@@ -10,8 +10,7 @@ before_script:
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
 script:
-  - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage tests/ConnectToMongoTest.php
-  
+  - phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml 
 notifications:
    email:
      on_success: 'always'
