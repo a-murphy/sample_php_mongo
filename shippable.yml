@@ -6,6 +6,8 @@ services:
   - mongodb
 before_script: 
   - pecl install xdebug
+  - composer self-update
+  - composer install --no-progress --no-interaction --prefer-source
   
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
