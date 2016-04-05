@@ -11,6 +11,8 @@ build:
     pull: true
     options: "-e HOME=/root"
   ci:
+    - eval "$(phpenv init -)"
+    - /root/.phpenv/bin/phpenv global 5.6
     - composer self-update
     - composer install --no-progress --no-interaction --prefer-source
     - mkdir -p shippable/testresults
