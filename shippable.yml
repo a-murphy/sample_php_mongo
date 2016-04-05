@@ -6,6 +6,10 @@ services:
   - mongodb
 before_script: 
   - pecl install xdebug
+  - ls /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/etc/
+  - echo 'zend_extension="/usr/lib/php5/20121212/xdebug.so"' > /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/etc/php.ini
+  - cat /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/etc/php.ini
+
   - composer self-update
   - composer install --no-progress --no-interaction --prefer-source
   
