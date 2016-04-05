@@ -11,8 +11,10 @@ build:
     pull: true
     options: "-e HOME=/root"
   ci:
+    - export SHIPPABLE_PHP_RUNTIME="$SHIPPABLE_PHP_VERSION"
+    - export PATH=$HOME/.phpenv/bin:$HOME/.phpenv/extensions:$PATH
     - eval "$(phpenv init -)"
-    - /root/.phpenv/bin/phpenv global 5.6
+    - /root/.phpenv/bin/phpenv global $SHIPPABLE_PHP_VERSION
     - php --version
     - composer self-update
     - composer install --no-progress --no-interaction --prefer-source
