@@ -9,7 +9,14 @@ build:
     - composer self-update
     - composer install --no-progress --no-interaction --prefer-source
     - find / -name xdebug.so
-    - pecl install xdebug
+    - wget https://xdebug.org/files/xdebug-2.4.0.tgz
+    - tar -xvzf xdebug-2.4.0.tgz
+    - cd xdebug-2.4.0
+    - phpize
+    - ./configure
+    - make
+    - cp modules/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20131226
+     
     - find / -name xdebug.so
     - ls /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions
     #- cp /usr/lib/php5/20121212/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so
