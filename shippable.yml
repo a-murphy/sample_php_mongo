@@ -15,6 +15,7 @@ build:
     - phpize
     - ./configure
     - make
+    - rm /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so
     - cp modules/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20131226
     - cd ..
     - find / -name xdebug.so
