@@ -16,7 +16,7 @@ build:
     - ./configure
     - make
     - cp modules/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20131226
-     
+    - cd ..
     - find / -name xdebug.so
     - ls /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions
     #- cp /usr/lib/php5/20121212/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so
