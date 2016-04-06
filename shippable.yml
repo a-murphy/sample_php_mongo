@@ -14,7 +14,6 @@ build:
   ci:
     - composer self-update
     - composer install --no-progress --no-interaction --prefer-source
-    - find / -name xdebug.so
     - wget https://xdebug.org/files/xdebug-2.4.0.tgz
     - tar -xvzf xdebug-2.4.0.tgz
     - cd xdebug-2.4.0
