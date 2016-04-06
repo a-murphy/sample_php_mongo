@@ -7,6 +7,9 @@ php:
   - 7.0
   - hhvm
   
+services:
+  - rabbitmq
+  
 build:
   ci:
     - composer self-update
