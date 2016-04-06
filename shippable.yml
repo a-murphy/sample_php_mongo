@@ -1,8 +1,11 @@
 language: php
 
 php: 
+  - 5.4
   - 5.5
   - 5.6
+  - 7.0
+  - hhvm
   
 build:
   ci:
@@ -15,13 +18,11 @@ build:
     - phpize
     - ./configure
     - make
-    - rm /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20131226/xdebug.so
-    - cp modules/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20131226
+    - if [ "SHIPPABLE_PHP_VERSION" == 5.4 ]; then cp modules/xdebug.so /root/.phpenv/versions/5.4/lib/php/extensions/no-debug-non-zts-20100525; fi
+    - if [ "SHIPPABLE_PHP_VERSION" == 5.5 ]; then cp modules/xdebug.so /root/.phpenv/versions/5.5/lib/php/extensions/no-debug-non-zts-20121212; fi
+    - if [ "SHIPPABLE_PHP_VERSION" == 5.6 ]; then cp modules/xdebug.so /root/.phpenv/versions/5.6/lib/php/extensions/no-debug-non-zts-20131226; fi
+    - if [ "SHIPPABLE_PHP_VERSION" == 7.0 ]; then cp modules/xdebug.so /root/.phpenv/versions/7.0/lib/php/extensions/no-debug-non-zts-20151012; fi
     - cd ..
-    - find / -name xdebug.so
-    - ls /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions
-    #- cp /usr/lib/php5/20121212/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so
-    #- phpenv rehash
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - vendor/phpunit/phpunit/phpunit  --log-junit shippable/testresults/junit.xml --coverage-xml shippable/codecoverage -c phpunit.xml
