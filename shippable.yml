@@ -10,7 +10,7 @@ build:
     - composer install --no-progress --no-interaction --prefer-source
     - pecl install xdebug
     - ls /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions
-    - cp /usr/lib/php5/20121212/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so
+    #- cp /usr/lib/php5/20121212/xdebug.so /root/.phpenv/versions/$SHIPPABLE_PHP_VERSION/lib/php/extensions/no-debug-non-zts-20151012/xdebug.so
     #- phpenv rehash
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
