@@ -30,7 +30,7 @@ class ConnectToMongoTest extends PHPUnit_Framework_TestCase{
       $this->assertEquals('Seattle, WA', 'Seattle, WA'); //check if MongoDB returned 'Seattle, WA' 
   }
   
-  public function testDatabase8()){
+  public function testDatabase8(){
       $this->assertEquals('Seattle, WA', 'Seattle, WA'); //check if MongoDB returned 'Seattle, WA' 
   }
   
