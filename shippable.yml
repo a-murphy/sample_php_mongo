@@ -1,13 +1,15 @@
 language: python
 
 build:
+  pre_ci:
+    - docker ps
   pre_ci_boot:
-        image_name: drydock/u14pyt
-        image_tag: prod
-        pull: true
-        options: "--net=host"
+    image_name: drydock/u14pyt
+    image_tag: prod
+    pull: true
+    options: "--net=host"
   ci:
-    - docker stop gloomy_mahavira && docker rm gloomy_mahavira
+    - docker stop sad_swartz && docker rm sad_swartz
     - docker ps
     - docker run -d -p 27018:27017 mongo
     - docker ps
