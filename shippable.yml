@@ -10,6 +10,7 @@ build:
     - docker ps
     - docker run -d -p 27018:27017 mongo
     - docker ps
+    - apt-get install mongodb-org-shell
     - mongo 127.0.0.1:27018
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
