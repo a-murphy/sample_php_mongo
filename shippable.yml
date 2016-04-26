@@ -9,15 +9,6 @@ build:
     pull: true
     options: "--net=host"
   ci:
-    - docker stop lonely_poitras && docker rm lonely_poitras
-    - docker stop ecstatic_hoover && docker rm ecstatic_hoover
     - docker ps
-    - docker run -d -p 27018:27017 mongo
-    - docker ps
-    - sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-    - echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-    - sudo apt-get update
-    - apt-get install mongodb-org-shell
-    - mongo 127.0.0.1:27018
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
