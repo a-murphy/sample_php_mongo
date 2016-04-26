@@ -1,3 +1,15 @@
+language: python
+
 build:
+  pre_ci_boot:
+        image_name: drydock/u14pyt
+        image_tag: prod
+        pull: true
+        options: "--net=host"
   ci:
-    - echo "true"
+    - docker ps
+    - docker run -d -p 27017:27017 mongo
+    - docker ps
+    - mongo -v
+    - mkdir -p shippable/testresults
+    - mkdir -p shippable/codecoverage
