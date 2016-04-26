@@ -9,7 +9,8 @@ build:
     pull: true
     options: "--net=host"
   ci:
-    - docker stop sad_swartz && docker rm sad_swartz
+    - docker stop lonely_poitras && docker rm lonely_poitras
+    - docker stop ecstatic_hoover && docker rm ecstatic_hoover
     - docker ps
     - docker run -d -p 27018:27017 mongo
     - docker ps
