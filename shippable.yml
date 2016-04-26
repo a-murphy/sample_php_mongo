@@ -7,7 +7,7 @@ build:
         pull: true
         options: "--net=host"
   ci:
-    - docker rm gloomy_mahavira
+    - docker stop gloomy_mahavira && docker rm gloomy_mahavira
     - docker ps
     - docker run -d -p 27018:27017 mongo
     - docker ps
