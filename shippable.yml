@@ -15,3 +15,4 @@ build:
     - return 1
   on_failure:
     - docker logs --tail=100 my_container_name
+
