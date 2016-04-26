@@ -1,12 +1,5 @@
-language: php
+language: python
 
-php: 
-  - 5.4
-  - 5.5
-  
-services:
-  - rabbitmq
-  
 build:
   pre_ci_boot:
         image_name: drydock/u14pyt
