@@ -4,10 +4,10 @@ build:
   pre_ci:
     - docker ps
   pre_ci_boot:
-    image_name: drydock/u14pyt
-    image_tag: prod
+    image_name: 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository
+    image_tag: latest
     pull: true
-    options: "--net=host"
+    options: "--net=host -e HOME=/root"
   ci:
     - docker run -d -p 27017:27017 --name=my_container_name mongo
     - mkdir -p shippable/testresults
@@ -18,3 +18,10 @@ build:
     - docker stop my_container_name
     - docker rm my_container_name
 
+integrations:
+    hub:
+      - integrationName: AWS
+        type: docker
+        branches:
+          only:
+            - master
