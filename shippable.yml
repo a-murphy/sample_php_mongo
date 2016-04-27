@@ -20,7 +20,7 @@ build:
 
 integrations:
     hub:
-      - integrationName: AWS
+      - integrationName: ECR
         type: docker
         branches:
           only:
