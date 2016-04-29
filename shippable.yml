@@ -8,7 +8,7 @@ build:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
   push:
-    - docker tag $SHIPPABLE_BUILD_CONTAINER 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
+    - docker tag $SHIPPABLE_CONTAINER_NAME 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
     - docker push 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
 
 integrations:
