@@ -7,7 +7,6 @@ build:
   #  - docker run -d -p 27017:27017 --name=my_container_name mongo
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
-  push:
     - docker tag -f drydock/u14nod:prod 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush2
     - docker push 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
 
@@ -15,4 +14,4 @@ integrations:
     hub:
       - integrationName: ECR
         type: ecr
-        region: us-east-1
+       # region: us-east-1
