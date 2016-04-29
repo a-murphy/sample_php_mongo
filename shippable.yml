@@ -8,7 +8,7 @@ build:
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
   push:
-    - docker tag drydock/u14nod:prod 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
+    - docker tag drydock/u14nod:prod 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush2
     - docker push 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
 
 integrations:
