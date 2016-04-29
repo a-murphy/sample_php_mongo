@@ -3,20 +3,14 @@ language: python
 build:
   pre_ci:
     - docker ps
-  pre_ci_boot:
-    image_name: 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository
-    image_tag: latest
-    pull: true
-    options: "--net=host -e HOME=/root"
   ci:
-    - docker run -d -p 27017:27017 --name=my_container_name mongo
+  #  - docker run -d -p 27017:27017 --name=my_container_name mongo
     - mkdir -p shippable/testresults
     - mkdir -p shippable/codecoverage
     - return 1
-  on_failure:
-    - docker logs --tail=100 my_container_name
-    - docker stop my_container_name
-    - docker rm my_container_name
+  push:
+    - docker tag $SHIPPABLE_BUILD_CONTAINER 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
+    - docker push 544102397216.dkr.ecr.us-west-2.amazonaws.com/testrepository:testpush
 
 integrations:
     hub:
